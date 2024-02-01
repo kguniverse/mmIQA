@@ -1,10 +1,4 @@
-from typing import List, Union
 from mmengine.dataset import BaseDataset, force_full_init
-
-import os
-
-import scipy
-import numpy as np
 
 class LIVEDataset(BaseDataset):
 
@@ -23,15 +17,29 @@ class LIVEDataset(BaseDataset):
     """
     MATAINFO = {
         'name': 'LIVE',
-        'classes': ['fastfading', 'gblur', 'jp2k', 'jpeg', 'wn', 'refimgs'],
-        'descriptions': {
-            'fastfading': 'Fast Fading Rayleigh',
-            'gblur': 'Gaussian blur',
-            'jp2k': 'JPEG2000',
-            'jpeg': 'JPEG',
-            'wn': 'White noise in the RGB components',
-            'refimgs': 'Reference images'
-        },
+        'classes': ['refimgs', 'jp2k', 'jpeg', 'wn', 'gblur', 'fastfading'],
+        'info': {
+            'fastfading': {
+                "description": "Fast Fading Rayleigh",
+                "nums": 174
+            },
+            'gblur': {
+                "description": "Gaussian blur",
+                "nums": 174
+            },
+            'jp2k': {
+                "description": "JPEG2000",
+                "nums": 227
+            },
+            'jpeg': {
+                "description": "JPEG",
+                "nums": 233
+            },
+            'wn': {
+                "description": "White noise in the RGB components",
+                "nums": 174
+            },
+        }
     }
     def __init__(self, *args, **kwargs):
         super(LIVEDataset, self).__init__(*args, **kwargs)

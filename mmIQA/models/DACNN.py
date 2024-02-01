@@ -45,10 +45,6 @@ class WGB(BaseModule):
         output = torch.cat((x1_mul, x2_mul), 1)
         return output
 
-
-
-
-
 #Distortion-Aware Convolution Neural Network
 @MODELS.register_module()
 class DACNN(BaseModel):
